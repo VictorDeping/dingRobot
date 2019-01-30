@@ -1,0 +1,15 @@
+{
+  "name": "chanlly/dingrobot",
+  "description": "钉钉机器人推送",
+  "authors": [
+    {
+      "name": "沧澜",
+      "email": "lryhuimeng@163.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Chanlly\\DingRobot\\": "src"
+    }
+  }
+}

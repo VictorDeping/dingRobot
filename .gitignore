@@ -1,0 +1,6 @@
+/vendor/
+/.idea
+/storage
+/.env
+/test.php
+/test_ding.php
