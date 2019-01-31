@@ -64,11 +64,13 @@ class DPushMD extends AbsPushDataAt
     /**
      * append text [xxxx]
      * @param string|IMDText $text
+     * @param bool $next_line
      * @return $this
      */
-    public function appendText($text)
+    public function appendText($text, $next_line = false)
     {
         $this->text .= ($text instanceof IMDText) ? $text->text() : $text;
+        $next_line && ($this->text .= self::NEXT_LINE_DOUBLE);
         return $this;
     }
     

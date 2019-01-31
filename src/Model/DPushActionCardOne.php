@@ -9,7 +9,7 @@
 namespace Chanlly\DingRobot\Model;
 
 
-class DPushActionCardOne extends DPushActionCard
+class DPushActionCardOne extends AbsDPushActionCard
 {
 
     /**

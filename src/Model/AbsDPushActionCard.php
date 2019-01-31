@@ -9,7 +9,7 @@
 namespace Chanlly\DingRobot\Model;
 
 
-abstract class DPushActionCard extends DPushMD
+abstract class AbsDPushActionCard extends DPushMD
 {
 
     /*---------------------------------------------- const ----------------------------------------------*/
@@ -24,11 +24,11 @@ abstract class DPushActionCard extends DPushMD
     /**
      * 按钮横向排列
      */
-    const BTN_ORIENTATION_HORIZONTAL = '1';
+    const BTN_ORIENTATION_HORIZONTAL = 1;
     /**
      * 按钮竖向排列
      */
-    const BTN_ORIENTATION_VERTICAL = '0';
+    const BTN_ORIENTATION_VERTICAL = 0;
 
 
     /*---------------------------------------------- attributes ----------------------------------------------*/
