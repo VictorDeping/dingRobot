@@ -51,9 +51,10 @@ abstract class AbsPushData implements IPushData
     public function getData(): array
     {
         $type = $this->type();
+        $typeData = $this->typeData();
         return $this->at() + [
                 "msgtype" => $type,
-                $type => $this->typeData()
+                $type => $typeData
             ];
     }
 }
