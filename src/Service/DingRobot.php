@@ -80,7 +80,7 @@ class DingRobot implements IPush
     final public function push(IPushData $data)
     {
         $host = $this->host.'?access_token='.$this->token;
-        $push_data = json_encode($data->getData());
+        $push_data = json_encode($data->getData(), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
         return $this->request($host, $push_data);
     }
     

@@ -67,6 +67,42 @@ if ($response === false) {
 
 #### 四、使用说明
 
+##### 4.1 at(@) 说明
+
+1. 在`message`实例中若提供有`atAll()`或者`atMobile()`,则表示该类型消息可以@指定或者所有人
+
+* 示例1 @所有人
+
+```php
+$message = DPushText::make('这是一条测试消息');
+$message->atAll();
+DingRobot::get('access_token')->push($message);
+```
+
+* 示例2 @指定的人
+
+```php
+$message = DPushText::make('这是一条测试消息');
+// $message->atMobiles('156********');  // at 单人
+// $message->atMobiles('156********', '176********'); //1: at 多人
+// $message->atMobiles(['156********', '176********']); //2: at 多人
+DingRobot::get('access_token')->push($message);
+```
+
+
+
+
+2. `@所有人`文本显示与隐藏, 部分消息需要设置该参数以显示`@所有人`文本
+
+* 例`DPushMD`类型消息推送时设置`atAll()`,会@群内所有人，但是不显示`@所有人`的文本
+* 如果需要显示`@所有人`文本，需要额外设置`isShowAtAll(true)`参数
+
+
+
+
+
+##### 4.2 api各类型消息推送使用说明
+
 1. 推送文本消息
 
 ```php
@@ -180,3 +216,7 @@ DingRobot::get('access_token')->push($message);
 * 推送示例
 
 ![Image text](https://github.com/chanlly/dingRobot/raw/master/resource/image/robot_feed_card.png)
+
+
+
+
