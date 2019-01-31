@@ -1,9 +1,9 @@
 # dingRobot
 
-#### 介绍
+#### 一、介绍
 钉钉机器人消息推送 简单封装
 
-#### 安装教程
+#### 二、安装教程
 
 1. 在`composer.json`文件中`repositories`部分加入以下配置
 
@@ -27,11 +27,17 @@
 
 2. 执行`composer require "chanlly/dingRobot"`
 
-#### 推送响应说明
+#### 三、说明
 
-> `DingRobot` 该类未实现对接口响应的处理，默认`request`方法会返回curl原始的返回数据，如果需要处理响应接口。
+##### 3.1 说明
 
-* 自定义处理推送结果:
+* 官方开发文档`https://open-doc.dingtalk.com/docs/doc.htm?spm=a219a.7629140.0.0.7f724a976PUVAr&treeId=257&articleId=105735&docType=1`
+
+##### 3.2 推送响应说明
+
+> `DingRobot` 该类未实现对接口响应的处理，默认`request`方法会返回curl原始的返回数据。
+
+* 推送结果处理:
 
 1. 继承`DingRobot`类，并重新`request`方法, 使用自定义的请求类实现并返回 
 
@@ -59,7 +65,7 @@ if ($response === false) {
 ```
 
 
-#### 使用说明
+#### 四、使用说明
 
 1. 推送文本消息
 
@@ -122,9 +128,11 @@ DingRobot::get('access_token')->push($message);
 
 * 横向排列示例 `$message->setBtnOrientation(DPushActionCard::BTN_ORIENTATION_HORIZONTAL);`
 
+![Image text](https://github.com/chanlly/dingRobot/raw/master/resource/image/robot_btn_list_horizontal.png)
 
 * 竖直排列示例 `$message->setBtnOrientation(DPushActionCard::BTN_ORIENTATION_VERTICAL);`
 
+![Image text](https://github.com/chanlly/dingRobot/raw/master/resource/image/robot_btn_list_vertical.png)
 
 4. 推送`ActionCard`类型消息(二)
 
@@ -141,6 +149,7 @@ DingRobot::get('access_token')->push($message);
 
 * 推送示例
 
+![Image text](https://github.com/chanlly/dingRobot/raw/master/resource/image/robot_action_card.png)
 
 5. 推送`link`类型消息
 
@@ -153,6 +162,8 @@ DingRobot::get('access_token')->push($message);
 ```
 
 * 推送示例
+
+![Image text](https://github.com/chanlly/dingRobot/raw/master/resource/image/robot_link.png)
 
 
 6. 推送`FeedCard`类型消息
@@ -167,3 +178,5 @@ DingRobot::get('access_token')->push($message);
 ```
 
 * 推送示例
+
+![Image text](https://github.com/chanlly/dingRobot/raw/master/resource/image/robot_feed_card.png)
