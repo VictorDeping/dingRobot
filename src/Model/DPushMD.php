@@ -105,11 +105,12 @@ class DPushMD extends AbsPushDataAt
     
     /**
      * append items disorder [- xxxx  - xxxx  - xxxx]
-     * @param array ...$items
+     * @param mixed $items
      * @return DPushMD
      */
-    public function appendItemsDisorder(... $items)
+    public function appendItemsDisorder($items)
     {
+        $items = is_array($items) ? $items : func_get_args();
         $item_str = '';
         foreach ($items as $item) {
             $item_str .= '- ' . $item . self::NEXT_LINE_DOUBLE;
@@ -119,11 +120,12 @@ class DPushMD extends AbsPushDataAt
     
     /**
      * append items orderly [1. xxxx  2. xxxx  3. xxxx]
-     * @param array ...$items
+     * @param mixed $items
      * @return DPushMD
      */
-    public function appendItemsOrderly(... $items)
+    public function appendItemsOrderly($items)
     {
+        $items = is_array($items) ? $items : func_get_args();
         $item_str = '';
         foreach ($items as $index => $item) {
             $item_str .= ($index + 1) . '. ' . $item . self::NEXT_LINE_DOUBLE;
@@ -145,11 +147,13 @@ class DPushMD extends AbsPushDataAt
     /**
      * append the image
      * @param string $url
+     * @param bool $next_line
      * @return $this
      */
-    public function appendImage($url)
+    public function appendImage($url, $next_line = true)
     {
-        return $this->appendText(MDTextImage::make($url));
+        $this->appendText(MDTextImage::make($url)) && $next_line && $this->nextLine();
+        return $this;
     }
     
     /**
