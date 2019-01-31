@@ -236,4 +236,4 @@ $exception = new \Exception('这是一条异常消息', 500);
 $message = DPushException::make($exception);
 DingRobot::get('access_token')->push($message);
 ```
-
+![Image text](https://github.com/chanlly/dingRobot/raw/master/resource/image/robot_custom_message.png)
