@@ -67,8 +67,9 @@ if ($response === false) {
 $message = DPushText::make('这是一条测试消息');
 DingRobot::get('access_token')->push($message);
 ```
-* 示例
+* 推送示例
 
+![Image text](https://raw.githubusercontent.com/chanlly/dingRobot/master/resource/image/robot_text_message.png)
 
 2. 推送`markdown`消息
 
@@ -98,3 +99,9 @@ $message->appendText(new class('自定义测试文本', 'custom') extends AbsMDT
 DingRobot::get('access_token')->push($message);
 
 ```
+* 推送示例
+
+![Image text](https://github.com/chanlly/dingRobot/raw/master/resource/image/robot_md_message.png)
+
+
+
