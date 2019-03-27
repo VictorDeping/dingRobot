@@ -21,7 +21,7 @@
 ```json
 {
     "type": "git",
-    "url": "git@gitee.com:canl/dingRobot.git"
+    "url": "git@gitee.com:chanlly/dingRobot.git"
 }
 ```
 
