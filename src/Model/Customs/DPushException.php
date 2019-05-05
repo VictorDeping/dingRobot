@@ -10,6 +10,7 @@ namespace Chanlly\DingRobot\Model\Customs;
 
 
 use Chanlly\DingRobot\Contacts\PushData\AbsPushDataAt;
+use Throwable;
 
 class DPushException extends AbsPushDataAt
 {
@@ -22,16 +23,16 @@ class DPushException extends AbsPushDataAt
     
     /**
      * 任意异常类
-     * @var \Throwable
+     * @var Throwable
      */
     protected $exception;
     
     /**
-     * @param \Throwable $exception
+     * @param Throwable $exception
      * @param string $title
      * @return static
      */
-    public static function make(\Throwable $exception, string $title = '')
+    public static function make(Throwable $exception, string $title = '')
     {
         $instance = new static();
         $instance->setException($exception);
@@ -69,23 +70,23 @@ class DPushException extends AbsPushDataAt
     }
     
     /**
-     * @param string[] ...$strs
+     * @param string[] $strings
      * @return string
      */
-    protected function strSplice(string ... $strs): string
+    protected function strSplice(string ... $strings): string
     {
         $buffer = '';
-        foreach ($strs as $str) {
+        foreach ($strings as $str) {
             $buffer .= $str."\n\n";
         }
         return rtrim($buffer, "\n");
     }
     
     /**
-     * @param \Throwable $exception
+     * @param Throwable $exception
      * @return $this
      */
-    public function setException(\Throwable $exception)
+    public function setException(Throwable $exception)
     {
         $this->exception = $exception;
         return $this;

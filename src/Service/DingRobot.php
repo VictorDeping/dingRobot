@@ -77,7 +77,7 @@ class DingRobot implements IPush
      * @param IPushData $data 推送的消息
      * @return mixed
      */
-    final public function push(IPushData $data)
+    public function push(IPushData $data)
     {
         $host = $this->host.'?access_token='.$this->token;
         $push_data = json_encode($data->getData(), JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);

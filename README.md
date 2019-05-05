@@ -1,10 +1,32 @@
 # dingRobot
 
-#### 一、介绍
+
+**Table of Contents**
+
+* [一、介绍](#introduce)
+* [二、安装教程](#install)
+* [三、说明](#explain)
+    * [3.1 说明](#explain-3.1)
+    * [3.2 推送响应说明](#explain-3.2)
+* [四、使用](#usage)
+    * [4.1 at(@) 说明](#usage-4.1) 
+    * [4.2 api各类型消息推送使用说明](#usage-4.2) 
+        * [1. 推送文本消息](#usage-4.2.1)
+        * [2. 推送`markdown`消息](#usage-4.2.2)
+        * [3. 推送`ActionCard`类型消息(一)](#usage-4.2.3)
+        * [4. 推送`ActionCard`类型消息(二)](#usage-4.2.4)
+        * [5. 推送`link`类型消息](#usage-4.2.5)
+        * [6. 推送`FeedCard`类型消息](#usage-4.2.6)
+* [五、拓展](#expand)
+    * [1. `markdown` 类型拓展](#expand-1)
+    * [2. 消息拓展](#expand-2)
+
+
+### <span id="introduce">一、介绍</span> [top](#dingrobot)
 
 钉钉机器人消息推送 简单封装
 
-#### 二、安装教程
+### <span id="install">二、安装教程</span> [top](#dingrobot)
 
 1. 在`composer.json`文件中`repositories`部分加入以下配置
 
@@ -22,19 +44,19 @@
 ```json
 {
     "type": "git",
-    "url": "git@gitee.com:chanlly/dingRobot.git"
+    "url": "https://gitee.com/chanlly/dingRobot.git"
 }
 ```
 
-2. 执行`composer require "chanlly/dingRobot"`
+2. 执行`composer require "chanlly/dingRobot:^*"`
 
-#### 三、说明
+### <span id="explain">三、说明</span> [top](#dingrobot)
 
-##### 3.1 说明
+#### <span id="explain-3.1">3.1 说明</span>
 
-* 官方开发文档`https://open-doc.dingtalk.com/docs/doc.htm?spm=a219a.7629140.0.0.7f724a976PUVAr&treeId=257&articleId=105735&docType=1`
+* [官方开发文档](https://open-doc.dingtalk.com/microapp/serverapi2/qf2nxq)
 
-##### 3.2 推送响应说明
+#### <span id="explain-3.2">3.2 推送响应说明</span>
 
 > `DingRobot` 该类未实现对接口响应的处理，默认`request`方法会返回curl原始的返回数据。
 
@@ -66,9 +88,9 @@ if ($response === false) {
 ```
 
 
-#### 四、使用说明
+### <span id="usage">四、使用</span>  [top](#dingrobot)
 
-##### 4.1 at(@) 说明
+#### <span id="usage-4.1">4.1 at(@) 说明</span>
 
 1. 在`message`实例中若提供有`atAll()`或者`atMobile()`,则表示该类型消息可以@指定或者所有人
 
@@ -105,9 +127,9 @@ DingRobot::get('access_token')->push($message);
 
 ![Image text](https://raw.githubusercontent.com/chanlly/dingRobot/master/resource/image/robot_md_at_mobile.png)
 
-##### 4.2 api各类型消息推送使用说明
+#### <span id="usage-4.2">4.2 api各类型消息推送使用说明</span>
 
-1. 推送文本消息
+<span id="usage-4.2.1">1. 推送文本消息</span>
 
 ```php
 $message = DPushText::make('这是一条测试消息');
@@ -117,7 +139,7 @@ DingRobot::get('access_token')->push($message);
 
 ![Image text](https://raw.githubusercontent.com/chanlly/dingRobot/master/resource/image/robot_text_message.png)
 
-2. 推送`markdown`消息
+<span id="usage-4.2.2">2. 推送`markdown`消息</span>
 
 ```php
 $message = DPushMD::make('左侧标题');
@@ -149,8 +171,8 @@ DingRobot::get('access_token')->push($message);
 
 ![Image text](https://github.com/chanlly/dingRobot/raw/master/resource/image/robot_md_message.png)
 
+<span id="usage-4.2.3">3. 推送`ActionCard`类型消息(一)</span>
 
-3. 推送`ActionCard`类型消息(一)
 
 ```php
 /* ======== 设置描述文本(markdown或者纯文本) ======== */
@@ -174,7 +196,8 @@ DingRobot::get('access_token')->push($message);
 
 ![Image text](https://github.com/chanlly/dingRobot/raw/master/resource/image/robot_btn_list_vertical.png)
 
-4. 推送`ActionCard`类型消息(二)
+<span id="usage-4.2.4">4. 推送`ActionCard`类型消息(二)</span>
+
 
 ```php
 $message = DPushActionCardOne::make("聊天显示概要");
@@ -191,7 +214,8 @@ DingRobot::get('access_token')->push($message);
 
 ![Image text](https://github.com/chanlly/dingRobot/raw/master/resource/image/robot_action_card.png)
 
-5. 推送`link`类型消息
+<span id="usage-4.2.5">5. 推送`link`类型消息</span>
+
 
 ```php
 $messageUrl = 'https://image.baidu.com/search/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=&sf=1&fmq=1548921909883_R&pv=&ic=&nc=1&z=&hd=&latest=&copyright=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&hs=2&word=%E7%8B%82%E4%B8%89';
@@ -205,8 +229,8 @@ DingRobot::get('access_token')->push($message);
 
 ![Image text](https://github.com/chanlly/dingRobot/raw/master/resource/image/robot_link.png)
 
+<span id="usage-4.2.6">6. 推送`FeedCard`类型消息</span>
 
-6. 推送`FeedCard`类型消息
 
 ```php
 $message = DPushFeedCard::make();
@@ -222,11 +246,14 @@ DingRobot::get('access_token')->push($message);
 ![Image text](https://github.com/chanlly/dingRobot/raw/master/resource/image/robot_feed_card.png)
 
 
-#### 五、拓展
+### <span id="expand">五、拓展</span>  [top](#dingrobot)
 
-1. `markdown` 类型拓展，继承`Chanlly\DingRobot\Contacts\MarkDown\AbsMDText`抽象类，并实现`handle`函数，返回处理后的文本
+<span id="expand-1">1. `markdown` 类型拓展</span>
 
-2. 消息拓展
+继承`Chanlly\DingRobot\Contacts\MarkDown\AbsMDText`抽象类，并实现`handle`函数，返回处理后的文本
+
+<span id="expand-2">2. 消息拓展</span>
+
     1. 继承`Chanlly\DingRobot\Contacts\PushData\AbsPushDataAt` 或 `Chanlly\DingRobot\Contacts\PushData\AbsPushData` 抽象类，实现`type()`方法返回消息类型，实现`typeData()`方法返回消息实体数据
     2. 继承已有的数据模型，并重写或拓展方法
     

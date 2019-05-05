@@ -8,6 +8,8 @@
 
 namespace Chanlly\DingRobot\Component;
 
+use Closure;
+
 class Pipeline
 {
     
@@ -27,10 +29,10 @@ class Pipeline
     
     /**
      * Set the array of pipes.
-     * @param \Closure $pipe
+     * @param Closure $pipe
      * @return $this
      */
-    public function through(\Closure $pipe)
+    public function through(Closure $pipe)
     {
         $this->pipes[] = $pipe;
         return $this;
@@ -51,22 +53,21 @@ class Pipeline
     
     /**
      * Run the pipeline with a final destination callback.
-     * @param  \Closure  $destination
+     * @param  Closure  $destination
      * @return mixed
      */
-    public function then(\Closure $destination)
+    public function then(Closure $destination)
     {
         $pipeline = array_reduce(
             array_reverse($this->pipes), $this->carry(), $this->prepareDestination($destination)
         );
-        // dd($pipeline, $this->passable);
         return $pipeline($this->passable);
     }
     
     /**
      * Get a Closure that represents a slice of the application onion.
      *
-     * @return \Closure
+     * @return Closure
      */
     protected function carry()
     {
@@ -80,13 +81,12 @@ class Pipeline
     /**
      * Get the final piece of the Closure onion.
      *
-     * @param  \Closure  $destination
-     * @return \Closure
+     * @param  Closure  $destination
+     * @return Closure
      */
-    protected function prepareDestination(\Closure $destination)
+    protected function prepareDestination(Closure $destination)
     {
         return function ($passable) use ($destination) {
-            dump('prepareDestination');
             return $destination($passable);
         };
     }
