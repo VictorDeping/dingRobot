@@ -3,15 +3,15 @@
 
 **Table of Contents**
 
-* [一、介绍](#introduce)
-* [二、安装教程](#install)
-* [三、说明](#explain)
-    * [3.1 说明](#explain-3.1)
-    * [3.2 推送响应说明](#explain-3.2)
-* [四、使用](#usage)
-    * [4.1 at(@) 说明](#usage-4.1) 
-    * [4.2 api各类型消息推送使用说明](#usage-4.2) 
-        * [1. 推送文本消息](#usage-4.2.1)
+* [一、介绍](#一介绍-top)
+* [二、安装教程](#二安装教程-top)
+* [三、说明](#三说明-top)
+    * [3.1 说明](#31-说明)
+    * [3.2 推送响应说明](#32-推送响应说明)
+* [四、使用](#四使用-top)
+    * [4.1 at(@) 说明](#41-at-说明) 
+    * [4.2 api各类型消息推送使用说明](#42-api各类型消息推送使用说明) 
+        * [1. 推送文本消息](#1-推送文本消息)
         * [2. 推送`markdown`消息](#usage-4.2.2)
         * [3. 推送`ActionCard`类型消息(一)](#usage-4.2.3)
         * [4. 推送`ActionCard`类型消息(二)](#usage-4.2.4)
@@ -88,7 +88,7 @@ if ($response === false) {
 ```
 
 
-### <span id="usage">四、使用</span>  [top](#dingrobot)
+### <span id="usage">四、使用</span> [top](#dingrobot)
 
 #### <span id="usage-4.1">4.1 at(@) 说明</span>
 
@@ -246,7 +246,7 @@ DingRobot::get('access_token')->push($message);
 ![Image text](https://github.com/chanlly/dingRobot/raw/master/resource/image/robot_feed_card.png)
 
 
-### <span id="expand">五、拓展</span>  [top](#dingrobot)
+### <span id="expand">五、拓展</span> [top](#dingrobot)
 
 <span id="expand-1">1. `markdown` 类型拓展</span>
 
