@@ -12,11 +12,11 @@
     * [4.1 at(@) 说明](#41-at-说明) 
     * [4.2 api各类型消息推送使用说明](#42-api各类型消息推送使用说明) 
         * [1. 推送文本消息](#1-推送文本消息)
-        * [2. 推送`markdown`消息](#usage-4.2.2)
-        * [3. 推送`ActionCard`类型消息(一)](#usage-4.2.3)
-        * [4. 推送`ActionCard`类型消息(二)](#usage-4.2.4)
-        * [5. 推送`link`类型消息](#usage-4.2.5)
-        * [6. 推送`FeedCard`类型消息](#usage-4.2.6)
+        * [2. 推送markdown消息](#2-推送markdown消息)
+        * [3. 推送ActionCard类型消息(一)](#3-推送ActionCard类型消息一)
+        * [4. 推送ActionCard类型消息(二)](#4-推送ActionCard类型消息二)
+        * [5. 推送link类型消息](#5-推送link类型消息)
+        * [6. 推送FeedCard类型消息](#6-推送FeedCard类型消息)
 * [五、拓展](#expand)
     * [1. `markdown` 类型拓展](#expand-1)
     * [2. 消息拓展](#expand-2)
@@ -129,7 +129,7 @@ DingRobot::get('access_token')->push($message);
 
 #### <span id="usage-4.2">4.2 api各类型消息推送使用说明</span>
 
-<span id="usage-4.2.1">1. 推送文本消息</span>
+##### <span id="usage-4.2.1">1. 推送文本消息</span>
 
 ```php
 $message = DPushText::make('这是一条测试消息');
@@ -139,7 +139,7 @@ DingRobot::get('access_token')->push($message);
 
 ![Image text](https://raw.githubusercontent.com/chanlly/dingRobot/master/resource/image/robot_text_message.png)
 
-<span id="usage-4.2.2">2. 推送`markdown`消息</span>
+##### <span id="usage-4.2.2">2. 推送`markdown`消息</span>
 
 ```php
 $message = DPushMD::make('左侧标题');
@@ -171,7 +171,7 @@ DingRobot::get('access_token')->push($message);
 
 ![Image text](https://github.com/chanlly/dingRobot/raw/master/resource/image/robot_md_message.png)
 
-<span id="usage-4.2.3">3. 推送`ActionCard`类型消息(一)</span>
+##### <span id="usage-4.2.3">3. 推送`ActionCard`类型消息(一)</span>
 
 
 ```php
@@ -196,7 +196,7 @@ DingRobot::get('access_token')->push($message);
 
 ![Image text](https://github.com/chanlly/dingRobot/raw/master/resource/image/robot_btn_list_vertical.png)
 
-<span id="usage-4.2.4">4. 推送`ActionCard`类型消息(二)</span>
+##### <span id="usage-4.2.4">4. 推送`ActionCard`类型消息(二)</span>
 
 
 ```php
@@ -214,7 +214,7 @@ DingRobot::get('access_token')->push($message);
 
 ![Image text](https://github.com/chanlly/dingRobot/raw/master/resource/image/robot_action_card.png)
 
-<span id="usage-4.2.5">5. 推送`link`类型消息</span>
+##### <span id="usage-4.2.5">5. 推送`link`类型消息</span>
 
 
 ```php
@@ -229,7 +229,7 @@ DingRobot::get('access_token')->push($message);
 
 ![Image text](https://github.com/chanlly/dingRobot/raw/master/resource/image/robot_link.png)
 
-<span id="usage-4.2.6">6. 推送`FeedCard`类型消息</span>
+##### <span id="usage-4.2.6">6. 推送`FeedCard`类型消息</span>
 
 
 ```php
