@@ -48,7 +48,7 @@
 }
 ```
 
-2. 执行`composer require "chanlly/dingRobot:^*"`
+2. 执行`composer require "chanlly/dingRobot"`
 
 ### <span id="explain">三、说明</span> [top](#dingrobot)
 
